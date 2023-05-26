@@ -16,7 +16,7 @@ async function searchEbayAndSendToSlack() {
     const response = await axios.get(url);
     const $ = cheerio.load(response.data);
     const products = $(".s-item");
-    let message = ""; // 메시지를 저장할 변수
+    let message = "";
 
     products.each((index, element) => {
       if (index > maxIdx) return false; // break;
@@ -26,7 +26,6 @@ async function searchEbayAndSendToSlack() {
         .trim()
         .replace("새 리스팅", "");
       if (name === "Shop on eBay") {
-        console.log(index);
         maxIdx = maxIdx + 1;
         return;
       } // continue;
