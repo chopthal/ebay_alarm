@@ -41,4 +41,4 @@ async function searchEbayAndSendToSlack() {
   }
 }
 
-searchEbayAndSendToSlack();
+module.exports = searchEbayAndSendToSlack;
